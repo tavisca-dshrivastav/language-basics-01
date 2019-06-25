@@ -16,10 +16,12 @@ namespace Tavisca.Bootcamp.LanguageBasics.Exercise1
 
         private static void Test(string args, int expected)
         {
-            var result = FixMutliplication.FindDigit(args).Equals(expected) ? "PASS" : "FAIL";
+            var result = FindDigit(args).Equals(expected) ? "PASS" : "FAIL";
             Console.WriteLine($"{args} : {result}");
         }
         //function to find ans in case missing integer is a multiplier...
-        
+        public static int FindDigit(string equation){
+            return FixMutliplication.FindMissingDigit(equation);
+        }
     }
 }

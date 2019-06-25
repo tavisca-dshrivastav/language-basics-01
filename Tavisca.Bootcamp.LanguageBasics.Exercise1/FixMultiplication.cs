@@ -41,7 +41,7 @@ namespace Tavisca.Bootcamp.LanguageBasics.Exercise1
             //else return -1.
             return -1;
         }
-        public static int FindDigit(string equation)
+        public static int FindMissingDigit(string equation)
         {
 
             string[] temp = equation.Split("*");
