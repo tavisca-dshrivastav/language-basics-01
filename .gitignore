@@ -330,4 +330,4 @@ ASALocalRun/
 .mfractor/
 
 # VS Code folder
-.vscode/
+./vscode
