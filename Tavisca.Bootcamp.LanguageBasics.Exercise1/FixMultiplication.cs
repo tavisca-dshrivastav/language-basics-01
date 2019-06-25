@@ -1,7 +1,7 @@
 
 namespace Tavisca.Bootcamp.LanguageBasics.Exercise1
 {
-    class Solution
+    class FixMutliplication
     {
         public static int FindMissingInteger(string missingNumber, string helpingNumber, string requiredResult, string assumedResult, bool isMultiplierMissing)
         {
@@ -41,7 +41,30 @@ namespace Tavisca.Bootcamp.LanguageBasics.Exercise1
             //else return -1.
             return -1;
         }
+        public static int FindDigit(string equation)
+        {
 
+            string[] temp = equation.Split("*");
+            string firstNumber = temp[0];
+            string secondNumber = temp[1].Split("=")[0];
+            string thirdNumber = temp[1].Split("=")[1];
+
+            if (firstNumber.Contains("?"))
+            {
+                string result = (int.Parse(thirdNumber) / int.Parse(secondNumber)).ToString();
+                return FindMissingInteger(firstNumber, secondNumber, thirdNumber, result, true);
+            }
+            else if (secondNumber.Contains("?"))
+            {
+                string result = (int.Parse(thirdNumber) / int.Parse(firstNumber)).ToString();
+                return FindMissingInteger(secondNumber, firstNumber, thirdNumber, result, true);
+            }
+            else
+            {
+                string result = (int.Parse(firstNumber) * int.Parse(secondNumber)).ToString();
+                return FindMissingInteger(thirdNumber, firstNumber, secondNumber, result, false);
+            }
+        }
 
     }
     

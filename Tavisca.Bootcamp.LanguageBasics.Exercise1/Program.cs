@@ -16,30 +16,10 @@ namespace Tavisca.Bootcamp.LanguageBasics.Exercise1
 
         private static void Test(string args, int expected)
         {
-            var result = FindDigit(args).Equals(expected) ? "PASS" : "FAIL";
+            var result = FixMutliplication.FindDigit(args).Equals(expected) ? "PASS" : "FAIL";
             Console.WriteLine($"{args} : {result}");
         }
         //function to find ans in case missing integer is a multiplier...
-        public static int FindDigit(string equation)
-        {
-            
-            string[] temp = equation.Split("*");
-            string firstNumber = temp[0];
-            string secondNumber = temp[1].Split("=")[0];
-            string thirdNumber = temp[1].Split("=")[1];
-
-            if(firstNumber.Contains("?")){
-                string result = (int.Parse(thirdNumber) / int.Parse(secondNumber)).ToString();
-                return Solution.FindMissingInteger(firstNumber, secondNumber, thirdNumber, result, true);    
-            }
-            else if(secondNumber.Contains("?")){
-                string result = (int.Parse(thirdNumber) / int.Parse(firstNumber)).ToString();
-                return Solution.FindMissingInteger(secondNumber, firstNumber, thirdNumber, result, true);   
-            } else {
-                string result = (int.Parse(firstNumber) * int.Parse(secondNumber)).ToString();
-                return Solution.FindMissingInteger(thirdNumber, firstNumber, secondNumber, result, false);
-            }
-        }
         
     }
 }
